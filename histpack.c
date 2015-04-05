@@ -56,22 +56,25 @@ void printout ()
 
 void main (int argc, char **argv)
 {
-  clock_t start;
+  struct timespec start, end;
 
-  setbuf(stdout, NULL);
+  setbuf (stdout, NULL);
 
   printf ("Generate input values...");
-  start = clock();  
+  clock_gettime (CLOCK_MONOTONIC, &start);
   init();
-  printf (" %.4fs\n", ((double) (clock() - start)) / CLOCKS_PER_SEC);
+  clock_gettime (CLOCK_MONOTONIC, &end);
+  printf (" %.5fs\n", ((double) end.tv_sec + (double) end.tv_nsec / 1000000000) - ((double) start.tv_sec + (double) start.tv_nsec / 1000000000));
 
   printf ("Histogram calculation...");
-  start = clock();
+  clock_gettime (CLOCK_MONOTONIC, &start);
   calc();
-  printf (" %.4fs\n", ((double) (clock() - start)) / CLOCKS_PER_SEC);
+  clock_gettime (CLOCK_MONOTONIC, &end);
+  printf (" %.5fs\n", ((double) end.tv_sec + (double) end.tv_nsec / 1000000000) - ((double) start.tv_sec + (double) start.tv_nsec / 1000000000));
 
   printf ("Pack it and print the result:\n");
-  start = clock();
+  clock_gettime (CLOCK_MONOTONIC, &start);
   printout();
-  printf ("    %.4fs\n", ((double) (clock() - start)) / CLOCKS_PER_SEC);
+  clock_gettime (CLOCK_MONOTONIC, &end);
+  printf (" %.5fs\n", ((double) end.tv_sec + (double) end.tv_nsec / 1000000000) - ((double) start.tv_sec + (double) start.tv_nsec / 1000000000));
 }
