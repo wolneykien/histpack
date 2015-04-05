@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 
 #define BUFSIZE 100000000
 
@@ -55,12 +56,22 @@ void printout ()
 
 void main (int argc, char **argv)
 {
-  printf ("Generate input values...\n");
-  init ();
+  clock_t start;
 
-  printf ("Histogram calculation...\n");
-  calc ();
+  setbuf(stdout, NULL);
+
+  printf ("Generate input values...");
+  start = clock();  
+  init();
+  printf (" %.4fs\n", ((double) (clock() - start)) / CLOCKS_PER_SEC);
+
+  printf ("Histogram calculation...");
+  start = clock();
+  calc();
+  printf (" %.4fs\n", ((double) (clock() - start)) / CLOCKS_PER_SEC);
 
   printf ("Pack it and print the result:\n");
-  printout ();
+  start = clock();
+  printout();
+  printf ("    %.4fs\n", ((double) (clock() - start)) / CLOCKS_PER_SEC);
 }
