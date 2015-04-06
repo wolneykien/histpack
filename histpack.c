@@ -26,7 +26,7 @@ void calc ()
   memset (hist, 65536, sizeof (uint16_t));
   for (x = 0; x < BUFSIZE; x++)
   {
-    hist[vals[x]]++;
+    ++hist[vals[x]];
   }
 }
 
