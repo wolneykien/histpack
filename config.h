@@ -1,0 +1,3 @@
+
+#define BUFSIZE 100000000
+#define COUNTERTYPE uint64_t

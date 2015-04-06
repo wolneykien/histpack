@@ -20,6 +20,7 @@ for (my $x = 0; $x < 65536; $x++)
 }
 
 print "#include <stdint.h>\n";
+print "#include \"config.h\"\n";
 print "\n";
 
 for (my $n = 0; $n < 16; $n++)

@@ -3,8 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-#define BUFSIZE 100000000
-#define COUNTERTYPE uint64_t
+#include "config.h"
 
 uint16_t vals[BUFSIZE];
 COUNTERTYPE hist[65536];
