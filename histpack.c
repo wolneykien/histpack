@@ -4,9 +4,10 @@
 #include <time.h>
 
 #define BUFSIZE 100000000
+#define COUNTERTYPE uint64_t
 
 uint16_t vals[BUFSIZE];
-uint16_t hist[65536];
+COUNTERTYPE hist[65536];
 
 void init ()
 {
@@ -23,7 +24,7 @@ void init ()
 void calc ()
 {
   long x;
-  memset (hist, 65536, sizeof (uint16_t));
+  memset (hist, 0, sizeof (hist));
   for (x = 0; x < BUFSIZE; x++)
   {
     ++hist[vals[x]];
@@ -33,9 +34,9 @@ void calc ()
 void printout ()
 {
   int x, n;
-  uint32_t res[16];
+  COUNTERTYPE res[16];
 
-  memset (res, 16, sizeof (uint32_t));
+  memset (res, 0, sizeof (res));
 
   for (x = 0; x < 65536; x++)
   {

@@ -24,9 +24,9 @@ print "\n";
 
 for (my $n = 0; $n < 16; $n++)
 {
-    print "uint32_t fn$n (uint16_t *hist)\n";
+    print "COUNTERTYPE fn$n (COUNTERTYPE *hist)\n";
     print "{\n";
-    print "    uint32_t res = 0;\n";
+    print "    COUNTERTYPE res = 0;\n";
     foreach my $x (@{$vals[$n]})
     {
         print "    res += hist[$x];\n";

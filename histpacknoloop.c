@@ -4,9 +4,10 @@
 #include <time.h>
 
 #define BUFSIZE 100000000
+#define COUNTERTYPE uint64_t
 
 uint16_t vals[BUFSIZE];
-uint16_t hist[65536];
+COUNTERTYPE hist[65536];
 
 void init ()
 {
@@ -23,29 +24,29 @@ void init ()
 void calc ()
 {
   long x;
-  memset (hist, 65536, sizeof (uint16_t));
+  memset (hist, 0, sizeof (hist));
   for (x = 0; x < BUFSIZE; x++)
   {
     ++hist[vals[x]];
   }
 }
 
-uint16_t fn0 (uint16_t *hist);
-uint16_t fn1 (uint16_t *hist);
-uint16_t fn2 (uint16_t *hist);
-uint16_t fn3 (uint16_t *hist);
-uint16_t fn4 (uint16_t *hist);
-uint16_t fn5 (uint16_t *hist);
-uint16_t fn6 (uint16_t *hist);
-uint16_t fn7 (uint16_t *hist);
-uint16_t fn8 (uint16_t *hist);
-uint16_t fn9 (uint16_t *hist);
-uint16_t fn10 (uint16_t *hist);
-uint16_t fn11 (uint16_t *hist);
-uint16_t fn12 (uint16_t *hist);
-uint16_t fn13 (uint16_t *hist);
-uint16_t fn14 (uint16_t *hist);
-uint16_t fn15 (uint16_t *hist);
+COUNTERTYPE fn0 (COUNTERTYPE *hist);
+COUNTERTYPE fn1 (COUNTERTYPE *hist);
+COUNTERTYPE fn2 (COUNTERTYPE *hist);
+COUNTERTYPE fn3 (COUNTERTYPE *hist);
+COUNTERTYPE fn4 (COUNTERTYPE *hist);
+COUNTERTYPE fn5 (COUNTERTYPE *hist);
+COUNTERTYPE fn6 (COUNTERTYPE *hist);
+COUNTERTYPE fn7 (COUNTERTYPE *hist);
+COUNTERTYPE fn8 (COUNTERTYPE *hist);
+COUNTERTYPE fn9 (COUNTERTYPE *hist);
+COUNTERTYPE fn10 (COUNTERTYPE *hist);
+COUNTERTYPE fn11 (COUNTERTYPE *hist);
+COUNTERTYPE fn12 (COUNTERTYPE *hist);
+COUNTERTYPE fn13 (COUNTERTYPE *hist);
+COUNTERTYPE fn14 (COUNTERTYPE *hist);
+COUNTERTYPE fn15 (COUNTERTYPE *hist);
 
 void printout ()
 {
